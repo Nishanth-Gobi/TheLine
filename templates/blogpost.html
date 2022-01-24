@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ blogpost.title_tag }}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ blogpost.title }}</h1>
+
+    <p>By: {{ blogpost.author.first_name }} {{ blogpost.author.last_name }}</p>
+    <p>{{ blogpost.pub_date }}</p>
+    <hr>
+    <br>
+    {{ blogpost.body }}
+    <br><br>
+    <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+    <a href="{% url 'edit-blogpost' blogpost.pk %}" class="btn btn-warning">Edit</a>
+
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Delete
+    </button>
+
+    <!-- Modal -->
+    <form action="{% url "delete-blogpost" blogpost.pk %}" method="post">
+        {% csrf_token %}
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirm Deletion</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                You cannot retrieve this blogpost once it's deleted!
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <input type="submit" class="btn btn-danger" value="Delete"/>
+                {# Is this usage correct? #}
+              </div>
+            </div>
+          </div>
+        </div>
+    </form>
+
+{% endblock %}
