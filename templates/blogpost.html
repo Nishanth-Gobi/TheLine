@@ -11,10 +11,10 @@
     <p>{{ blogpost.pub_date }}</p>
     <hr>
     <br>
-    {{ blogpost.body }}
+    {{ blogpost.body | safe }}
     <br><br>
     <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
-    {% if user.is_authenticated %}
+    {% if user.is_authenticated and user.id == blogpost.author.id %}
 
     <a href="{% url 'edit-blogpost' blogpost.pk %}" class="btn btn-warning">
         Edit
