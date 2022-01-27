@@ -9,7 +9,7 @@
         <br>
         {{ post.pub_date }}
         <br>
-        {{ post.body }}
+        {{ post.body|slice:":200" }}
     </li>
 {% endfor %}
 </ul>

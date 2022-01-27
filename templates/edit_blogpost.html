@@ -5,6 +5,7 @@
 {% endblock %}
 {% block content %}
 
+{% if user.is_authenticated %}
     <h1>Edit Blogpost...</h1>
     <br><br>
     <div class="form-group">
@@ -14,5 +15,7 @@
             <button class="btn btn-secondary">Update</button>
         </form>
     </div>
-
+{% else %}
+    <h1> You're not allowed here! (& you know it)</h1>
+{% endif %}
 {% endblock %}
