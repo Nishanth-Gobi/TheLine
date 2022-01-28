@@ -10,10 +10,18 @@
     <div class="form-group">
         <form method="POST">
             {% csrf_token %}
+            {{ form.media }}
             {{ form.as_p }}
             <button class="btn btn-secondary">Post</button>
         </form>
     </div>
+
+    <script>
+        var curr_user = "{{ user.id }}";
+        document.getElementById("writer").value = curr_user;
+
+    </script>
+
 {% else %}
     <h1> You're not allowed here! (& you know it)</h1>
 {% endif %}

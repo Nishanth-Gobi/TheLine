@@ -11,7 +11,7 @@
     <div class="form-group">
         <form method="POST">
             {% csrf_token %}
-            {% bootstrap_form form %}
+            {{ form.as_p }}
             <br>
             <button class="btn btn-success">Login</button>
         </form>

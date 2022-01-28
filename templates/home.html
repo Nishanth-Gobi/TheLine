@@ -5,11 +5,11 @@
 <ul>
 {% for post in object_list %}
     <li>
-        <a href="{% url 'blogpost-detailed' post.pk %}">{{ post.title }}</a> - {{ post.author.first_name }} {{ post.author.last_name }}
+        <a href="{% url 'blogpost-detailed' post.pk %}">{{ post.title }}</a> - {{ post.author.username }}
         <br>
         {{ post.pub_date }}
         <br>
-        {{ post.body|slice:":200" }}
+        {{ post.snippet }}
     </li>
 {% endfor %}
 </ul>
