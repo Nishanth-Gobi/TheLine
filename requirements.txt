@@ -27,7 +27,7 @@ nest-asyncio==1.5.1
 parso==0.8.2
 pexpect==4.8.0
 pickleshare==0.7.5
-Pillow==8.4.0
+Pillow==9.0.0
 pipreqs==0.4.11
 psycopg2 @ file:///tmp/build/80754af9/psycopg2_1612298595717/work
 ptyprocess==0.7.0
